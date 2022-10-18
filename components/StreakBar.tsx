@@ -21,7 +21,6 @@ const ProgressBar = styled.div<ProgressBarProps>`
   overflow: hidden;
   margin-left: auto;
   height: 100%;
-  z-index: -1;
 
   ::after {
     content: '';
@@ -55,7 +54,7 @@ const StreakBar = ({ streak = 0 }: StreakBarProps): JSX.Element => {
   return (
     <Flex style={{ height: 'fit-content', position: 'relative', padding: '0.15rem' }}>
 
-      <Typography variant={'h5'}>
+      <Typography variant={'h5'} style={{ zIndex: 1 }}>
         Streak: <strong>{streak}</strong>
       </Typography>
 
