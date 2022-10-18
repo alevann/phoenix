@@ -2,8 +2,8 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import {createTheme, CssBaseline, ThemeProvider} from '@mui/material'
-import Logo from '../components/Logo'
 import Head from 'next/head'
+import TopBar from '../components/TopBar'
 
 const client = new QueryClient()
 const theme = createTheme({
@@ -24,7 +24,7 @@ function App({ Component, pageProps }: AppProps) {
 
         <CssBaseline enableColorScheme />
 
-        <Logo />
+        <TopBar />
         <Component {...pageProps} />
 
       </ThemeProvider>
