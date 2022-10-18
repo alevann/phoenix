@@ -3,6 +3,12 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import path from 'path'
 import { promises as fs } from 'fs'
 
+export const config = {
+  api: {
+    responseLimit: false,
+  },
+}
+
 /**
  * A list of all supported languages
  */
