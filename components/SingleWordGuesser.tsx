@@ -28,7 +28,10 @@ const SingleWordGuesser = ({ dictionary }: SingleWordGuesserProps): JSX.Element 
       style={{
         padding: '1rem',
         backgroundColor: '#242424',
-        borderRadius: '5px'
+        borderRadius: '5px',
+        width: '100%',
+        height: '100%',
+        maxHeight: '100%'
       }}
     >
 
@@ -36,11 +39,11 @@ const SingleWordGuesser = ({ dictionary }: SingleWordGuesserProps): JSX.Element 
         streak={streak}
       />
 
-      <Flex>
+      <Flex style={{ height: '100%' }}>
 
         <WordDisplay
           word={last}
-          style={{ width: '50%', padding: '1rem' }}
+          style={{ width: '50%', padding: '1rem', maxHeight: '100%' }}
         />
 
         <Flex
@@ -50,6 +53,10 @@ const SingleWordGuesser = ({ dictionary }: SingleWordGuesserProps): JSX.Element 
 
           <Typography variant={'h3'} gutterBottom>
             {word.phonetic}
+          </Typography>
+
+          <Typography variant={'subtitle1'}>
+            Cheats: {word.latin}
           </Typography>
 
           <WordField word={word} onCorrect={onCorrectGuess} />

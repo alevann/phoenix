@@ -21,9 +21,11 @@ const WordDisplay = ({ style, word }: WordDisplayProps): JSX.Element => {
         {word.phonetic}
       </Typography>
 
-      <Typography variant={'body1'} align={'justify'}>
-        {capitalize(word.definition)}
-      </Typography>
+      <div style={{ overflow: 'auto', maxHeight: '85%' }}>
+        <Typography variant={'body1'} align={'justify'}>
+          {capitalize(word.definition)}
+        </Typography>
+      </div>
 
     </Flex>
   )

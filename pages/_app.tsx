@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import {createTheme, CssBaseline, ThemeProvider} from '@mui/material'
 import Head from 'next/head'
 import TopBar from '../components/TopBar'
+import Flex from '../components/Flex'
 
 const client = new QueryClient()
 const theme = createTheme({
@@ -24,8 +25,12 @@ function App({ Component, pageProps }: AppProps) {
 
         <CssBaseline enableColorScheme />
 
-        <TopBar />
-        <Component {...pageProps} />
+        <Flex column style={{ width: '100vw', height: '100vh' }}>
+
+          <TopBar />
+          <Component {...pageProps} />
+
+        </Flex>
 
       </ThemeProvider>
     </QueryClientProvider>
