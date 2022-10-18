@@ -26,12 +26,19 @@ const Animate = styled.div`
   }
 `
 
-const Logo = () => {
+type LogoProps = {
+  animate?: boolean
+}
+
+const Logo = ({ animate = false }: LogoProps): JSX.Element => {
+  let logo = <p>/ˈfiːnɪks/</p>
+  if (animate) {
+    logo = <Animate>{logo}</Animate>
+  }
+
   return (
     <Container>
-      <Animate>
-        <p>/ˈfiːnɪks/</p>
-      </Animate>
+      {logo}
     </Container>
   )
 }
