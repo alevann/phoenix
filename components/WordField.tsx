@@ -1,13 +1,14 @@
 import {Input} from '@mui/material'
-import {ChangeEvent, useState} from 'react'
+import {ChangeEvent, CSSProperties, useState} from 'react'
 
 type WordFieldProps = {
   word: Word
   onCorrect: (word: Word) => void
   resetOnCorrect?: boolean
+  style?: CSSProperties
 }
 
-const WordField = ({ word, onCorrect, resetOnCorrect = true }: WordFieldProps): JSX.Element => {
+const WordField = ({ word, onCorrect, resetOnCorrect = true, style }: WordFieldProps): JSX.Element => {
   const [guess, setGuess] = useState('')
 
   const update = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
@@ -20,6 +21,7 @@ const WordField = ({ word, onCorrect, resetOnCorrect = true }: WordFieldProps): 
 
   return (
     <Input
+      style={style}
       value={guess}
       onChange={update}
       disabled={guess == word.latin}
