@@ -9,7 +9,10 @@ import Flex from '../components/Flex'
 const client = new QueryClient()
 const theme = createTheme({
   palette: {
-    mode: 'dark'
+    mode: 'dark',
+    primary: {
+      main: '#EB3349'
+    }
   }
 })
 

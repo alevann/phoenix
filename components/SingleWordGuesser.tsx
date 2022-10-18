@@ -3,7 +3,7 @@ import Flex from './Flex'
 import StreakBar from './StreakBar'
 import WordDisplay from './WordDisplay'
 import WordField from './WordField'
-import {Typography} from '@mui/material'
+import {Button, Typography} from '@mui/material'
 
 const getRandomWord = (d: Dictionary) => d[d.length * Math.random() << 0]
 
@@ -20,6 +20,12 @@ const SingleWordGuesser = ({ dictionary }: SingleWordGuesserProps): JSX.Element 
     setWord(getRandomWord(dictionary))
     setLast(w)
     setStreak(streak + 1)
+  }
+
+  const onSkip = () => {
+    setStreak(0)
+    setLast(word)
+    setWord(getRandomWord(dictionary))
   }
 
   return (
@@ -64,6 +70,14 @@ const SingleWordGuesser = ({ dictionary }: SingleWordGuesserProps): JSX.Element 
           }
 
           <WordField word={word} onCorrect={onCorrectGuess} />
+
+          <Button
+            variant={'contained'}
+            onClick={onSkip}
+            style={{ width: 'fit-content', alignSelf: 'end', marginTop: 'auto' }}
+          >
+            Skip
+          </Button>
 
         </Flex>
 
