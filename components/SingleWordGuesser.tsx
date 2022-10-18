@@ -34,7 +34,6 @@ const SingleWordGuesser = ({ dictionary }: SingleWordGuesserProps): JSX.Element 
       style={{
         padding: '1rem',
         backgroundColor: '#242424',
-        borderRadius: '5px',
         width: '100%',
         height: '100%',
         maxHeight: '100%'
