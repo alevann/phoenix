@@ -55,9 +55,13 @@ const SingleWordGuesser = ({ dictionary }: SingleWordGuesserProps): JSX.Element 
             {word.phonetic}
           </Typography>
 
-          <Typography variant={'subtitle1'}>
-            Cheats: {word.latin}
-          </Typography>
+          {
+            process.env.NODE_ENV !== 'production' && (
+              <Typography variant={'subtitle1'}>
+                Cheats: {word.latin}
+              </Typography>
+            )
+          }
 
           <WordField word={word} onCorrect={onCorrectGuess} />
 
