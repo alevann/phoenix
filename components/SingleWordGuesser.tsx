@@ -76,7 +76,7 @@ const SingleWordGuesser = ({ dictionary }: SingleWordGuesserProps): JSX.Element 
             onClick={onSkip}
             style={{ width: 'fit-content', alignSelf: 'end', marginTop: 'auto' }}
           >
-            Skip
+            <strong>Skip</strong>
           </Button>
 
         </Flex>
