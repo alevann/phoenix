@@ -54,7 +54,7 @@ const StreakBar = ({ streak = 0 }: StreakBarProps): JSX.Element => {
   return (
     <Flex style={{ height: 'fit-content', position: 'relative', padding: '0.15rem' }}>
 
-      <Typography variant={'h5'} style={{ zIndex: 1 }}>
+      <Typography variant={'h5'} style={{ zIndex: 1, marginLeft: '1.5rem' }}>
         Streak: <strong>{streak}</strong>
       </Typography>
 
