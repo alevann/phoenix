@@ -2,6 +2,8 @@ import type { NextPage } from 'next'
 import useDictionary from '../hooks/useDictionary'
 import WordField from '../components/WordField'
 import {useEffect, useState} from 'react'
+import WordDisplay from '../components/WordDisplay'
+import Flex from '../components/Flex'
 
 const Home: NextPage = () => {
   const { dictionary, isLoading } = useDictionary('en')
@@ -17,14 +19,16 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div>
+    <Flex style={{ gap: '2rem' }}>
+
+      <WordDisplay word={word} style={{ width: '50%' }} />
+
       <WordField
         word={word}
         onCorrect={onCorrect}
       />
-      <p>{word.latin}</p>
-      <p>{word.phonetic}</p>
-    </div>
+
+    </Flex>
   )
 }
 
