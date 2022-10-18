@@ -1,12 +1,8 @@
 import styled from '@emotion/styled'
 import Logo from './Logo'
 
-const Container = styled.div`
-  position: sticky;
-  top: 0;
-  
+const Container = styled.div`  
   padding: 1rem;
-  
   display: flex;
   flex-direction: row;
 `
