@@ -66,7 +66,7 @@ type DecentProps = {}
 const Decent = ({}: DecentProps): JSX.Element => {
   const { dictionary, isLoading } = useDictionary('en')
 
-  const [word, setWord] = useState<Word>(dictionary && getRandomWord(dictionary) || {})
+  const [word, setWord] = useState<Word>({ latin: '', phonetic: '', definition: '' })
   const [last, setLast] = useState<Word>({ latin: '', phonetic: '', definition: '' })
 
   const onCorrectGuess = (w: Word) => {
@@ -78,6 +78,10 @@ const Decent = ({}: DecentProps): JSX.Element => {
     setLast(word)
     setWord(getRandomWord(dictionary))
   }
+
+  useEffect(() => {
+    setWord(getRandomWord(dictionary))
+  }, [dictionary])
 
   useEffect(() => {
     // sneaky eheheh
