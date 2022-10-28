@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { Button, Typography } from "@mui/material";
 import WordField from "../components/WordField";
 import WordDisplay from "../components/WordDisplay";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Background = styled.div`
   background-image: linear-gradient(to right, #EB3349, #F45C43, #EB3349);
@@ -66,7 +66,7 @@ type DecentProps = {}
 const Decent = ({}: DecentProps): JSX.Element => {
   const { dictionary, isLoading } = useDictionary('en')
 
-  const [word, setWord] = useState<Word>(getRandomWord(dictionary))
+  const [word, setWord] = useState<Word>(dictionary && getRandomWord(dictionary) || {})
   const [last, setLast] = useState<Word>({ latin: '', phonetic: '', definition: '' })
 
   const onCorrectGuess = (w: Word) => {
@@ -79,8 +79,10 @@ const Decent = ({}: DecentProps): JSX.Element => {
     setWord(getRandomWord(dictionary))
   }
 
-  // sneaky eheheh
-  (window as any).cheats = (): any => ({ latin: word.latin, phonetic: word.phonetic })
+  useEffect(() => {
+    // sneaky eheheh
+    (window as any).cheats = (): any => ({ latin: word.latin, phonetic: word.phonetic })
+  }, [word])
 
   if (isLoading) {
     return <p>Loading...</p>
