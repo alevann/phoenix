@@ -15,7 +15,7 @@ const WordField = ({ word, onCorrect, resetOnCorrect = true, style }: WordFieldP
   useEffect(() => setGuess(''), [word])
 
   const update = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
-    if (value == word.latin) {
+    if (value.toLowerCase() == word.latin.toLowerCase()) {
       onCorrect(word)
       resetOnCorrect && (value = '')
     }
