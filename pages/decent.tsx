@@ -80,7 +80,9 @@ const Decent = ({}: DecentProps): JSX.Element => {
   }
 
   useEffect(() => {
-    setWord(getRandomWord(dictionary))
+    if (dictionary) {
+      setWord(getRandomWord(dictionary))
+    }
   }, [dictionary])
 
   useEffect(() => {
